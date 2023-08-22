@@ -105,6 +105,20 @@
   display: block; /* Change to "inline-block" if necessary */
 }
 
+.play-pause-button3 {
+  background-color: #695037;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Change to "inline-block" if necessary */
+}
+
 
   .play-pause-button:hover {
     background-color: #c0392b;
@@ -125,7 +139,7 @@
 
   /* Photos above audio players */
   .audio-photo {
-    width: 100%;
+    width: 75%;
     max-width: 400px;
     height: auto;
     border-radius: 50%;
@@ -194,20 +208,20 @@ input[type="range"] {
 /* Add these styles to your existing CSS */
 /* Style for Audio 1 slider knob */
 #volumeSlider1::-webkit-slider-thumb {
-  background-color: #ff1900; /* Change to your desired color */
+  background-color: #ff7464; /* Change to your desired color */
 }
 
 #volumeSlider1::-moz-range-thumb {
-  background-color: #ff1900; /* Change to your desired color */
+  background-color: #ff7464; /* Change to your desired color */
 }
 
 /* Style for Audio 2 slider knob */
 #volumeSlider2::-webkit-slider-thumb {
-  background-color: #654321; /* Change to your desired color */
+  background-color: #695037; /* Change to your desired color */
 }
 
 #volumeSlider2::-moz-range-thumb {
-  background-color: #654321; /* Change to your desired color */
+  background-color: #695037; /* Change to your desired color */
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -246,6 +260,37 @@ input[type="range"]::-ms-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
+/* Style for the Audio 1 Extend button */
+#extendButton1 {
+  background-color: #f81900; /* Change to your desired color */
+}
+
+/* Style for the Audio 2 Extend button */
+#extendButton2 {
+  background-color: #654321; /* Change to your desired color */
+}
+
+#extendButton3 {
+  background-color: #f81900; /* Change to your desired color */
+}
+
+.extend-button {
+  /* Common styles for both Extend buttons */
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Change to "inline-block" if necessary */
+}
+
+.extend-button:hover {
+  background-color: #333; /* Common hover color for both buttons */
+}
 
 </style>
 </head>
@@ -262,10 +307,12 @@ input[type="range"]::-ms-thumb {
 
   <div class="side-menu" id="sideMenu">
     <span class="close-button" id="closeButton">&times;</span>
-    <div class="menu-item" onclick="redirectTo('cs.html')">Home</div>
-    <div class="menu-item" onclick="redirectTo('cs.html')">Fire Department</div>
-    <div class="menu-item" onclick="redirectTo('cs.html')">Sheriff Office</div>
-    <div class="menu-item" onclick="redirectTo('cs.html')">Contact</div>
+<!-- Inside your side menu -->
+<div class="menu-item" onclick="window.location.href='cs.html'">Home</div>
+<div class="menu-item" onclick="window.location.href='fire.html'">Fire Department</div>
+<div class="menu-item" onclick="window.location.href='sheriff.html'">Sheriff Office</div>
+<div class="menu-item" onclick="window.location.href='contact.html'">Contact</div>
+
   </div>
 
   <div class="audio-container">
@@ -273,6 +320,7 @@ input[type="range"]::-ms-thumb {
 	<div class="audio-player">
 	  <img class="audio-photo" src="https://firesafeojai.org/wp-content/uploads/2022/06/vcfd_new_logo-1.png" alt="Fire Department">
 	  <button class="play-pause-button2" id="playPause1">Play</button>
+    <button class="extend-button" id="extendButton1">Extend</button>
 	  <input type="range" id="volumeSlider1" min="0" max="1" step="0.01" value="1">
 	  <audio id="audio1" controls>
 		<source src="https://bit.ly/3PezMtH" type="audio/mpeg"> / <!--https://listen.broadcastify.com/qnt2rpm9v1gckh0.mp3?nc=50438-->
@@ -284,7 +332,8 @@ input[type="range"]::-ms-thumb {
     <!-- Audio 2 - Sheriff Office -->
     <div class="audio-player">
 		<img class="audio-photo" src="https://i.vimeocdn.com/portrait/43309464_640x640" alt="Police Department">
-		<button class="play-pause-button1" id="playPause2">Play</button>
+		<button class="play-pause-button3" id="playPause2">Play</button>
+    <button class="extend-button" id="extendButton2">Extend</button>
 		<input type="range" id="volumeSlider2" min="0" max="1" step="0.01" value="1">
 		<audio id="audio2" controls>
 		  <source src="https://bit.ly/3OH8ASQ" type="audio/mpeg"> <!--https://broadcastify.cdnstream1.com/31780-->
@@ -294,14 +343,75 @@ input[type="range"]::-ms-thumb {
 	  </div>
 	</div>
 
+  <div class="audio-player">
+    <img class="audio-photo" src="https://cdn.discordapp.com/attachments/1087581840468099132/1143392417677054072/image-removebg-preview.png" alt="Emergency Services">
+    <button class="play-pause-button2" id="playPause3">Play</button>
+    <button class="extend-button" id="extendButton3">Extend</button>
+    <input type="range" id="volumeSlider3" min="0" max="1" step="0.01" value="1">
+    <audio id="audio3" controls>
+      <source src="https://broadcastify.cdnstream1.com/38040" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p class="dispatch-text">Calagary Fire Dept.</p>
+  </div>
+</div>
+
   <footer>
     <p>Contact Me: JrCalifornian@RoadRunner.com | Phone: (619) 369-6670</p>
   </footer>
 
 <script>
-function redirectTo(url) {
-      window.location.href = url;
-    }
+  // Audio 3 Extend Button
+const extendButton3 = document.getElementById("extendButton3");
+
+extendButton3.addEventListener("click", () => {
+  const newWindow = window.open("CFD.html", "_blank", "width=800,height=600");
+  if (newWindow) {
+    newWindow.focus();
+    location.reload();
+  }
+});
+
+// Audio 3
+const audio3 = document.getElementById("audio3");
+const playPause3Button = document.getElementById("playPause3");
+const volumeSlider3 = document.getElementById("volumeSlider3");
+
+playPause3Button.addEventListener("click", () => {
+  if (audio3.paused) {
+    audio3.play();
+    playPause3Button.textContent = "Pause";
+  } else {
+    audio3.pause();
+    playPause3Button.textContent = "Play";
+  }
+});
+
+volumeSlider3.addEventListener("input", () => {
+  audio3.volume = volumeSlider3.value;
+});
+
+// Audio 1 Extend Button
+const extendButton1 = document.getElementById("extendButton1");
+
+extendButton1.addEventListener("click", () => {
+  const newWindow = window.open("fd.html", "_blank", "width=800,height=600");
+  if (newWindow) {
+    newWindow.focus();
+    location.reload(); // Reload the current page
+  }
+});
+
+// Audio 2 Extend Button
+const extendButton2 = document.getElementById("extendButton2");
+
+extendButton2.addEventListener("click", () => {
+  const newWindow = window.open("SO.html", "_blank", "width=800,height=600");
+  if (newWindow) {
+    newWindow.focus();
+    location.reload(); // Reload the current page
+  }
+});
   const menuButton = document.getElementById("menuButton");
   const sideMenu = document.getElementById("sideMenu");
   const closeButton = document.getElementById("closeButton");
